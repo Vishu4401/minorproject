@@ -1,16 +1,8 @@
 <?php
-define('DBSERVER', 'localhost');
-define('DBUSERNAME', 'root');
-define('DBPASSWORD', '');
-define('DBNAME', 'Worksheet');
 
-$db = mysqli_connect(DBSERVER, DBUSERNAME, DBPASSWORD, DBNAME);
+$db_user = "root";
+$db_pass = "";
+$db_name = "workdiary";
 
-
-if($db === false){
-	die("Error: Connection error." . mysqli_connect_error());
-}
-?>
-
-
-
+$db = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
